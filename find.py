@@ -16,7 +16,9 @@ def main():
     # TODO: add an optional flag -i / --ignore-case  (use action="store_true")
 
     args = parser.parse_args()
-
+    with open(args.filename) as f:
+        i = f.readlines()
+    [print(f'{row}: {line.rstrip()}') for row, line in enumerate(i,1)]
     # TODO: open args.filename and read its lines. For each line, numbered starting
     #   at 1, print "<number>: <line>" when the line contains args.pattern.
     #   If the --ignore-case flag was given, match without caring about upper/lower
